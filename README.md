@@ -3,9 +3,7 @@ A simple upmp ruby gem, without unnecessary magic or wraper, it's directly facin
 
 It contain this API:
 
-* Generate payment url
 * Send goods
-* Verify notify
 
 
 ## Installation
@@ -14,7 +12,7 @@ Add this line to your application's Gemfile:
 
 
 ```ruby
-gem 'upmp', :github => 'https://github.com/oldfritter/upmp'
+gem 'upmp', :git => 'https://github.com/oldfritter/upmp'
 ```
 
 And then execute:
