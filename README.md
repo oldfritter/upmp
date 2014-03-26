@@ -55,9 +55,8 @@ options = {
 			
 ```
 
-You can redirect user to this payment url, and user will see a payment page for his/her order.
 
-Current support three payment type:
+Current support payment type:
 ```
  Upmp::Service#mobile_payment_control        	# 银联控件支付
  
