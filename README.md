@@ -28,25 +28,24 @@ $ bundle
 ### Config
 
 ```ruby
-  Upmp.store_no = '880000000001095'
-  Upmp.key = 'ETXboGTeXVems2CD655WVSM0qAO122P5'
-  Upmp.card_no = '6226440123456785'
-  Upmp.UPMP_TRADE_URL = '222.66.233.198'
+  Upmp.store_no = '880000000001094' #商户合作号
+  Upmp.key = 'ETXboGTeXVems2CD655WVSM0qAO122P4' #商户的KEY
+  Upmp.UPMP_TRADE_URL = '222.66.233.198' #银联的网关
 	
 ```
 
 ### Generate payment url
 
 ```ruby
-options = {
+@options = {
         merId: Upmp.store_no,
-        backEndUrl: order.call_back_url{payment = 'upmp'},
-        frontEndUrl: order.call_back_url{payment = 'upmp'},
+        backEndUrl: "call_back_url",
+        frontEndUrl: "call_back_url",
         # acqCode: '',
         orderTime: Time.now.strftime('%Y%m%d%H%M%S'),
-        orderTimeout: 1.hour.from_now.strftime('%Y%m%d%H%M%S'),
+        orderTimeout: 1.hour.from_now.localtime.strftime('%Y%m%d%H%M%S'),
         orderNumber: order.payment_sn,
-        orderAmount: order.total_fee_,
+        orderAmount: order.total_fee,
         orderCurrency: order.currency_code
       }
 
