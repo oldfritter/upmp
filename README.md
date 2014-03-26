@@ -31,6 +31,8 @@ $ bundle
   Upmp.store_no = '880000000001095'
   Upmp.key = 'ETXboGTeXVems2CD655WVSM0qAO122P5'
   Upmp.card_no = '6226440123456785'
+  Upmp.UPMP_TRADE_URL = '222.66.233.198'
+	
 ```
 
 ### Generate payment url
@@ -48,7 +50,9 @@ options = {
         orderCurrency: order.currency_code
       }
 
-Upmp::Service.mobile_payment_control(options)
+      http = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080)
+      response = http.post('/gateway/merchant/trade', Upmp::Service.mobile_payment_control(@option))
+			
 ```
 
 You can redirect user to this payment url, and user will see a payment page for his/her order.

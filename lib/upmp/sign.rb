@@ -6,7 +6,7 @@ module Upmp
       query = params.sort.map do |key, value|
         "#{key}=#{value}"
       end.join('&')
-      query = "#{query}#{Upmp.key}"
+      query = "#{query}&#{Digest::MD5.hexdigest(Upmp.key).downcase}"
       Digest::MD5.hexdigest(query)
     end
 
