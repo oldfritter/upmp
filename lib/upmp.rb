@@ -7,9 +7,9 @@ require 'upmp/notify'
 module Upmp
   
   class << self
+
     attr_accessor :store_no
     attr_accessor :key
-    attr_accessor :card_no
     attr_accessor :UPMP_TRADE_URL
      
   end
