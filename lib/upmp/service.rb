@@ -3,6 +3,7 @@ require 'open-uri'
 
 module Upmp
   module Service    
+    UPMP_TRADE_URL = ''
     
     MOBILE_PAYMENT_CONTROL = %w( version charset transType merId backEndUrl frontEndUrl orderTime orderTimeout orderNumber orderAmount orderCurrency )
     # Upmp mobile payment control
@@ -12,6 +13,7 @@ module Upmp
         'charset' => 'UTF-8',
         'transType' => '01'
       }.merge(Utils.stringify_keys(options))
+
       check_required_options options, MOBILE_PAYMENT_CONTROL
 
       response = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080).post('/gateway/merchant/trade', query_string(options))
