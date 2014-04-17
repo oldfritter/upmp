@@ -13,7 +13,6 @@ module Upmp
         'transType' => '01'
       }.merge(Utils.stringify_keys(options))
       check_required_options options, MOBILE_PAYMENT_CONTROL
-
       response = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080).post('/gateway/merchant/trade', query_string(options))
       CGI.parse(response.body)['tn'].first
     end
@@ -27,9 +26,8 @@ module Upmp
         'transType' => '01'
       }.merge(Utils.stringify_keys(options))
       check_required_options options, MOBILE_PAYMENT_INQUIRE
-      
       response = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080).post('/gateway/merchant/query', query_string(options))
-      CGI.parse(response.body)['respCode'].first
+      CGI.parse(response.body)['transStatus'].first
       
     end
     
