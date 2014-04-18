@@ -47,18 +47,13 @@ $ bundle
         orderCurrency: order.currency_code
       }
 
-      http = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080)
-      response = http.post('/gateway/merchant/trade', Upmp::Service.mobile_payment_control(@option))
+    http = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080)
+    response = http.post('/gateway/merchant/trade', Upmp::Service.mobile_payment_control(@option))
 	  tn = response.body #获取交易的流水号
 	  
-	        result_url = URI.encode "#{SITE_ROOT}/mobile/upmp_success?payment_sn=#{payment_sn}&result="
-	        order_info = "tn=#{params},resultURL=#{result_url},usetestmode=true"
-	        html =<<EOF
-<a href='uppay://uppayservice/?style=token&paydata=#{Base64.encode64(order_info)}'>
-<img src='/assets/yinlian.jpg' alt='银联手机支付' style='width: 300px; height: 200px;'/>
-</a>
-EOF
-	        render text: html.gsub!.html_safe #返回一个跳转页面,点击银联的图标以启动银联的app
+    result_url = CGI.escape "#{SITE_ROOT}/utility/upmp_success?payment_sn=#{payment_sn}&result="
+    order_info = "tn=#{params},resultURL=#{result_url},usetestmode=true"
+    render text: "<a href='uppay://uppayservice/?style=token&paydata=#{CGI.escape(Base64.encode64(order_info))}'><img src='/assets/yinlian.jpg' alt='银联手机支付' style='width: 300px; height: 200px;'/></a>".html_safe #返回一个跳转页面,点击银联的图标以启动银联的app
 	  
 ```
 
