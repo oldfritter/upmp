@@ -18,7 +18,7 @@ gem 'upmp', :git => 'https://github.com/oldfritter/upmp'
 And then execute:
 
 ```sh
-$ bundle
+$ bundle install
 ```
 
 ## Usage
