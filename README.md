@@ -1,10 +1,7 @@
 
 A simple upmp ruby gem, without unnecessary magic or wraper, it's directly facing how upmp api works.
 
-It contain this API:
-
-* Send goods
-
+This gem is just for mobile payment of UnionPay.
 
 ## Installation
 
