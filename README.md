@@ -1,5 +1,5 @@
 
-A simple upmp ruby gem, without unnecessary magic or wraper, it's directly facing how upmp api works.
+A simple upmp ruby gem, without unnecessary magic or wrapper, it's directly facing how upmp api works.
 
 This gem is just for mobile payment of UnionPay.
 
