@@ -64,3 +64,4 @@ Current support payment type:
 ## Contributing
 
 Bug report or pull request are welcome.
+leon.zcf(at)gmail.com
