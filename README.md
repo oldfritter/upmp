@@ -25,8 +25,8 @@ $ bundle install
 ```ruby
   Upmp.store_no = '880000000001094' #商户合作号
   Upmp.key = 'ETXboGTeXVems2CD655WVSM0qAO122P4' #商户的KEY
-  Upmp.UPMP_TRADE_URL = '222.66.233.198' #银联的网关(此处为测试网关)
-	
+	Upmp.UPMP_TRADE_URL = 'https://mgate.unionpay.com'
+
 ```
 
 ### Generate payment url
