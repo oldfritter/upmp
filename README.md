@@ -1,7 +1,7 @@
 
 A simple upmp ruby gem, without unnecessary magic or wrapper, it's directly facing how upmp api works.
 
-This gem is just for mobile payment of UnionPay.
+This gem is just for mobile payment of UnionPay(UPMP).
 
 ## Installation
 
@@ -44,7 +44,7 @@ $ bundle install
         orderCurrency: order.currency_code
       }
 
-    http = Net::HTTP.new(Upmp.UPMP_TRADE_URL, 8080)
+    http = Net::HTTP.new(Upmp.UPMP_TRADE_URL)
     response = http.post('/gateway/merchant/trade', Upmp::Service.mobile_payment_control(@option))
 	  tn = response.body #获取交易的流水号
 	  
@@ -64,4 +64,4 @@ Current support payment type:
 ## Contributing
 
 Bug report or pull request are welcome.
-leon.zcf(at)gmail.com
+My Email: leon.zcf(at)gmail.com
