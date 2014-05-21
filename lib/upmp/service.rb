@@ -12,8 +12,15 @@ module Upmp
         'charset' => 'UTF-8',
         'transType' => '01'
       }.merge(Utils.stringify_keys(options))
-      check_required_options options, MOBILE_PAYMENT_CONTROL
-      response = Net::HTTP.new(Upmp.UPMP_TRADE_URL).post('/gateway/merchant/trade', query_string(options))
+      check_required_options options, MOBILE_PAYMENT_CONTROL      
+      
+      uri = URI.parse Upmp.UPMP_TRADE_URL + "/gateway/merchant/trade"
+      http = Net::HTTP.new uri.host, uri.port
+      http.use_ssl = true if uri.scheme == 'https'
+      request = Net::HTTP::Post.new uri.request_uri
+      request.body = query_string options
+      response = http.request request
+      
       CGI.parse(response.body)['tn'].first
     end
     
@@ -26,7 +33,14 @@ module Upmp
         'transType' => '01'
       }.merge(Utils.stringify_keys(options))
       check_required_options options, MOBILE_PAYMENT_INQUIRE
-      response = Net::HTTP.new(Upmp.UPMP_TRADE_URL).post('/gateway/merchant/query', query_string(options))
+            
+      uri = URI.parse Upmp.UPMP_TRADE_URL + "/gateway/merchant/query"
+      http = Net::HTTP.new uri.host, uri.port
+      http.use_ssl = true if uri.scheme == 'https'
+      request = Net::HTTP::Post.new uri.request_uri
+      request.body = query_string options
+      response = http.request request
+      
       CGI.parse(response.body)['transStatus'].first
       
     end
