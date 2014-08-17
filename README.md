@@ -32,7 +32,7 @@ $ bundle install
 	
 ```
 
-### Generate payment url
+### Trade
 
 ```ruby
 @options = {
@@ -57,10 +57,23 @@ $ bundle install
 	  
 ```
 
+### Inquire
+
+```ruby
+      @option = {
+        merId:        Upmp.store_no,
+        orderTime:    order.paid_at.strftime('%Y%m%d%H%M%S'),
+        orderNumber:  order.out_trade_no
+      }
+      
+      Upmp::Service.mobile_payment_inquire @option
+
+```
 
 Current support payment type:
 ```
  Upmp::Service#mobile_payment_control        	# 银联控件支付
+ Upmp::Service#mobile_payment_inquire         # 查询接口
  
 ```
 
