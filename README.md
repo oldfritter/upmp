@@ -52,7 +52,7 @@ $ bundle install
 	  tn = response.body #获取交易的流水号
 	  
     result_url = CGI.escape "#{SITE_ROOT}/utility/upmp_success?payment_sn=#{payment_sn}&result="
-    order_info = "tn=#{params},resultURL=#{result_url},usetestmode=true" #生产模式请将usetestmode设为false
+    order_info = "tn=#{params},resultURL=#{result_url},usetestmode=false" #生产模式请将usetestmode设为false
     render text: "<a href='uppay://uppayservice/?style=token&paydata=#{CGI.escape(Base64.encode64(order_info))}'><img src='/assets/yinlian.jpg' alt='银联手机支付' style='width: 300px; height: 200px;'/></a>".html_safe #返回一个跳转页面,点击银联的图标以启动银联的app
 	  
 ```
@@ -70,10 +70,10 @@ $ bundle install
 
 ```
 
-Current support payment type:
-```
- Upmp::Service#mobile_payment_control        	# 银联控件支付
- Upmp::Service#mobile_payment_inquire         # 查询接口
+### Current support payment type:
+```ruby
+ Upmp::Service.mobile_payment_control        	# 银联控件支付
+ Upmp::Service.mobile_payment_inquire           # 查询接口
  
 ```
 
