@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 测试
-gem 'upmp', :git => 'https://github.com/oldfritter/upmp.git', tag: 'f52c29cc6e3652c0c126d41cebe1ad97ffd9c0d9'
+gem 'upmp', :git => 'https://github.com/oldfritter/upmp.git', tag: 'test_model'
 生产
 gem 'upmp', :git => 'https://github.com/oldfritter/upmp.git'
 ```
@@ -72,8 +72,8 @@ $ bundle install
 
 Current support payment type:
 ```
- Upmp::Service#mobile_payment_control        	# 银联控件支付
- Upmp::Service#mobile_payment_inquire         # 查询接口
+ Upmp::Service.mobile_payment_control        	# 银联控件支付
+ Upmp::Service.mobile_payment_inquire           # 查询接口
  
 ```
 
