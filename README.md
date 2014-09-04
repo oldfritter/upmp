@@ -53,8 +53,8 @@ $ bundle install
     render text: "<a href='uppay://uppayservice/?style=token&paydata=#{CGI.escape(Base64.encode64(order_info))}'><img src='/assets/yinlian.jpg' alt='银联手机支付' style='width: 300px; height: 200px;'/></a>".html_safe #返回一个跳转页面,点击银联的图标以启动银联的app
 	  
 ```
-Inquire
-```
+### Inquire
+```ruby
       @option = {
         merId:        Upmp.store_no,
         orderTime:    order.paid_at.strftime('%Y%m%d%H%M%S'),
@@ -64,8 +64,8 @@ Inquire
       Upmp::Service.mobile_payment_inquire @option
 ```
 
-Current support payment type:
-```
+### Current support payment type:
+```ruby
  Upmp::Service#mobile_payment_control        	# 银联控件支付
  Upmp::Service#mobile_payment_inquire           # 查询接口
 
