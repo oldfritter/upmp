@@ -66,8 +66,8 @@ $ bundle install
 
 ### Current support payment type:
 ```ruby
- Upmp::Service#mobile_payment_control        	# 银联控件支付
- Upmp::Service#mobile_payment_inquire           # 查询接口
+ Upmp::Service.mobile_payment_control        	# 银联控件支付
+ Upmp::Service.mobile_payment_inquire           # 查询接口
 
 ```
 
