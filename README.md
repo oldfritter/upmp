@@ -28,7 +28,7 @@ $ bundle install
 ```ruby
   Upmp.store_no = 'Your number' #商户合作号
   Upmp.key = 'Your key' #商户的KEY
-  Upmp.UPMP_TRADE_URL = 'https://mgate.unionpay.com' #银联的网关(此处为测试网关)
+  Upmp.UPMP_TRADE_URL = 'https://mgate.unionpay.com' #银联的网关
 	
 ```
 
